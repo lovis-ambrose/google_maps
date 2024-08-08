@@ -28,20 +28,19 @@ export class MapComponent implements OnInit {
 
   constructor(private _fb: FormBuilder) {
     this.formData = this._fb.group({
-      address: ['', [Validators.pattern(/^[a-zA-Z0-9\s,.'-]{3,}$/)]],
+      address: ['', [Validators.pattern(/^[a-zA-Z0-9\s,.'-]{2,}$/)]],
     });
   }
 
   ngOnInit(): void {
     this.loader = new Loader({
-      apiKey: 'AIzaSyATK9OJw_jMVMoJ7hlB52eKZsqJlppp2oA', // Replace with your actual API key
+      apiKey: 'AIzaSyATK9OJw_jMVMoJ7hlB52eKZsqJlppp2oA',
       version: 'weekly',
-      libraries: []
     });
 
     this.loader.load().then(() => {
       this.mapLoaded = true;
-      this.setDefaultLocation(); // Ensure default location is set
+      this.setDefaultLocation();
     }).catch(() => {
       console.error('Error loading Google Maps API');
     });
@@ -67,12 +66,12 @@ export class MapComponent implements OnInit {
       } else {
         this.setDefaultLocation();
       }
-      
+
     }
   }
 
   setDefaultLocation(): void {
-    this.center = { lat: 37.7749, lng: -122.4194 }; // Default location
+    this.center = { lat: 37.7749, lng: -122.4194 };
     this.markerPositions = [this.center];
   }
 }

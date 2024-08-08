@@ -1,8 +1,8 @@
 <div class="container">
   <form [formGroup]="formData">
-    <div class="mb-3">
-      <label class="form-label" for="address">Address</label>
-      <div class="field">
+    <div>
+      <label class="form-label" for="address">Enter Address</label>
+      <div class="#">
         <input type="text" 
                class="form-control" 
                id="address" 
@@ -11,10 +11,10 @@
                (input)="updateMap()" />
       </div>
     </div>
-    <div class="map rounded-circle">
+    <div>
       <google-map 
-          height="280px"
-          width="700px"
+          height="90vh"
+          width="100%"
           [center]="center"
           [zoom]="zoom"
           mapId="d22cde2d2915a452">
