@@ -1,0 +1,27 @@
+<div class="container">
+  <form [formGroup]="formData">
+    <div class="mb-3">
+      <label class="form-label" for="address">Address</label>
+      <div class="field">
+        <input type="text" 
+               class="form-control" 
+               id="address" 
+               placeholder="Enter address"
+               formControlName="address" 
+               (input)="updateMap()" />
+      </div>
+    </div>
+    <div class="map rounded-circle">
+      <google-map 
+          height="280px"
+          width="700px"
+          [center]="center"
+          [zoom]="zoom"
+          mapId="d22cde2d2915a452">
+        <ng-container *ngFor="let position of markerPositions">
+          <map-marker [position]="position"></map-marker>
+        </ng-container>
+      </google-map>
+    </div>
+  </form>
+</div>
